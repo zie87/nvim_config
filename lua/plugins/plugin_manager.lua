@@ -14,6 +14,8 @@ return require('packer').startup(function()
     use {'wbthomason/packer.nvim', opt = true}
     -- color
     use 'tanvirtin/monokai.nvim'
+    use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
+    use {'glepnir/galaxyline.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
     -- utils
     use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons'}
 end)

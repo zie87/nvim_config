@@ -1,3 +1,4 @@
 autoload
 vimspector-config
 .netrwhist
+plugin

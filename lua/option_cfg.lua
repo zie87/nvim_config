@@ -1,13 +1,5 @@
-
-
--- https://oroques.dev/notes/neovim-init/
-local scopes = {o = vim.o, b = vim.bo, w = vim.wo}
-
-local function opt(scope, key, value)
-    scopes[scope][key] = value
-    if scope ~= 'o' then scopes['o'][key] = value end
-end
-
+local utils = require('utilities')
+local opt = utils.opt
 
 local indent = 4
 opt('b', 'expandtab', true)                           -- Use spaces instead of tabs
@@ -25,3 +17,12 @@ opt('o', 'clipboard', 'unnamedplus')                  -- Copy paste between vim 
 opt('w', 'number', true)                              -- Print line number
 opt('w', 'relativenumber', true)                      -- Relative line numbers
 opt('w', 'cursorline', true)                          -- Enable highlighting of the current line
+
+local cmd = vim.cmd
+
+cmd(':command! WQ wq')
+cmd(':command! WQ wq')
+cmd(':command! Wq wq')
+cmd(':command! Wqa wqa')
+cmd(':command! W w')
+cmd(':command! Q q')

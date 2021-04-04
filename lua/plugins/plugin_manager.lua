@@ -15,6 +15,9 @@ local use = require('packer').use
 
 return require('packer').startup(function()
     use {'wbthomason/packer.nvim', opt = true}
+    -- git
+    use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim' } }
+
     -- language server
     use {'neovim/nvim-lspconfig'}
     use {'hrsh7th/nvim-compe'}

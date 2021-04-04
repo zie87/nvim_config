@@ -12,6 +12,7 @@ map('n', '<m-h>', ':vertical resize -2<CR>', {noremap = true})
 map('n', '<m-l>', ':vertical resize +2<CR>', {noremap = true})
 
 -- Better window navigation
+
 map('n', '<c-h>', '<c-w>h', {noremap = true})
 map('n', '<c-j>', '<c-w>j', {noremap = true})
 map('n', '<c-k>', '<c-w>k', {noremap = true})

@@ -26,3 +26,7 @@ global.nvim_tree_icons = {
         symlink = ""
     }
 }
+
+
+local which_key_map = require('plugins.utils.whichkey').key_map
+which_key_map['e'] = {':NvimTreeToggle<CR>', 'explorer' }

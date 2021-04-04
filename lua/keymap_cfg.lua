@@ -3,7 +3,8 @@ local opt = utils.opt
 local map = utils.map
 
 local global = vim.g
-global.mapleader = [[-]]
+global.mapleader      = [[-]]
+global.maplocalleader = [[,]]
 
 -- Use alt + hjkl to resize windows
 map('n', '<m-j>', ':resize -2<CR>',          {noremap = true})

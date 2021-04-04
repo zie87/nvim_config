@@ -1,5 +1,4 @@
 local utils = require('utilities')
-local opt = utils.opt
 local map = utils.map
 
 local global = vim.g

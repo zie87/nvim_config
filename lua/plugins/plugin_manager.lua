@@ -16,16 +16,19 @@ local use = require('packer').use
 return require('packer').startup(function()
     use {'wbthomason/packer.nvim', opt = true}
     -- language server
-    use 'neovim/nvim-lspconfig'
-    use 'hrsh7th/nvim-compe'
+    use {'neovim/nvim-lspconfig'}
+    use {'hrsh7th/nvim-compe'}
     use {'kabouzeid/nvim-lspinstall', requires = 'neovim/nvim-lspconfig'}
+    -- treesitter
+    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     -- color
-    use 'tanvirtin/monokai.nvim'
+    use {'tanvirtin/monokai.nvim'}
     use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
     use {'glepnir/galaxyline.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
     -- utils
-    use 'glepnir/dashboard-nvim'
+    use {'glepnir/dashboard-nvim'}
     use {'AckslD/nvim-whichkey-setup.lua', requires = {'liuchengxu/vim-which-key'}}
+    use {'davidgranstrom/nvim-markdown-preview'}
     -- utils - finder
     use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}
     -- utils - explorer

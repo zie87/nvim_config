@@ -25,7 +25,8 @@ return require('packer').startup(function()
     -- treesitter
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     -- color
-    use {'tanvirtin/monokai.nvim'}
+    use {'norcalli/nvim-colorizer.lua'}
+    use {'zie87/monokai.nvim'}
     use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
     use {'glepnir/galaxyline.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
     -- utils

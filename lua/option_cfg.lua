@@ -27,6 +27,8 @@ opt('o', 'termguicolors', true)                       -- True color support
 opt('o', 'clipboard', 'unnamedplus')                  -- Copy paste between vim and everything else
 opt('o', 'completeopt', 'menuone,noselect')           -- settings for completion menu
 
+opt('o', 'guifont', 'Mononoki Nerd Font:h14')
+
 opt('w', 'number', true)                              -- Print line number
 opt('w', 'relativenumber', true)                      -- Relative line numbers
 opt('w', 'cursorline', true)                          -- Enable highlighting of the current line

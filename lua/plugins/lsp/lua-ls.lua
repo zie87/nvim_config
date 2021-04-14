@@ -15,12 +15,14 @@ require'lspconfig'.sumneko_lua.setup {
                 path = vim.split(package.path, ';')
             },
             diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = {'vim'}
+                -- Get the language server to recognize global objects for vim and awesomewm
+                globals = {'vim', 'awesome', "tag", "screen", "client"}
             },
             workspace = {
                 -- Make the server aware of Neovim runtime files
-                library = {[vim.fn.expand('$VIMRUNTIME/lua')] = true, [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true},
+                library =  {[vim.fn.expand('$VIMRUNTIME/lua')] = true,
+                            [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+                            [vim.fn.expand('/usr/share/awesome/lib')] = true},
                 maxPreload = 10000
             }
         }

@@ -32,6 +32,7 @@ return require('packer').startup(function()
     -- utils
     use {'glepnir/dashboard-nvim'}
     use {'AckslD/nvim-whichkey-setup.lua', requires = {'liuchengxu/vim-which-key'}}
+    use {'dhruvasagar/vim-table-mode'}
     use {'davidgranstrom/nvim-markdown-preview'}
     -- utils - finder
     use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}

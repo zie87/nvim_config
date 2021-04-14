@@ -33,6 +33,7 @@ opt('w', 'number', true)                              -- Print line number
 opt('w', 'relativenumber', true)                      -- Relative line numbers
 opt('w', 'cursorline', true)                          -- Enable highlighting of the current line
 opt('w', 'signcolumn', 'yes:1')                       -- Show column for additional information (e.g. LSP)
+opt('w', 'wrap', false)                               -- disable line wrap
 
 local cmd = vim.cmd
 

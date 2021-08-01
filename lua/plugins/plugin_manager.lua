@@ -22,6 +22,7 @@ return require('packer').startup(function()
     use {'neovim/nvim-lspconfig'}
     use {'hrsh7th/nvim-compe'}
     use {'kabouzeid/nvim-lspinstall', requires = 'neovim/nvim-lspconfig'}
+    use {'robert-oleynik/clangd-nvim', requires = 'neovim/nvim-lspconfig'}
     -- treesitter
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     -- color

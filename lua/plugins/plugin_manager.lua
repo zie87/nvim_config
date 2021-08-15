@@ -34,10 +34,12 @@ return require('packer').startup(function()
     use {'glepnir/dashboard-nvim'}
     use {'AckslD/nvim-whichkey-setup.lua', requires = {'liuchengxu/vim-which-key'}}
     use {'dhruvasagar/vim-table-mode'}
-    use {'davidgranstrom/nvim-markdown-preview'}
+    use {'iamcco/markdown-preview.nvim', ft = 'markdown', run = 'cd app && yarn install'}
     -- utils - finder
     use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}
     -- utils - explorer
     use {'kevinhwang91/rnvimr'}
     use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons'}
+    -- utils - vimwiki
+    use {'vimwiki/vimwiki'}
 end)

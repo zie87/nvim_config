@@ -3,7 +3,7 @@ local which_key_map = {}
 
 which_key_map.w = {
     name = '+windows',
-    ['w'] = {'<C-W>w'     , 'other-window'          },
+--    ['w'] = {'<C-W>w'     , 'other-window'          },
     ['d'] = {'<C-W>c'     , 'delete-window'         },
     ['-'] = {'<C-W>s'     , 'split-window-below'    },
     ['|'] = {'<C-W>v'     , 'split-window-right'    },

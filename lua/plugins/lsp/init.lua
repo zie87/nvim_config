@@ -56,6 +56,6 @@ which_key_map.l = {
     ['D'] = {':lua vim.lsp.buf.declaration()<CR>'   , 'declaration'    },
     ['i'] = {':lua vim.lsp.buf.implementation()<CR>', 'implementation' },
     ['r'] = {':lua vim.lsp.buf.references()<CR>'    , 'references'     },
-    ['F'] = {':lua vim.lsp.buf.formatting()<CR>'        , 'format buffer'  },
+    ['F'] = {':lua vim.lsp.buf.formatting()<CR>'    , 'format buffer'  },
 }
 

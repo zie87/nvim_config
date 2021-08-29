@@ -1,10 +1,18 @@
 local global = vim.g
 
-global.vimwiki_list = {{path = '~/Documents/vimwiki', syntax = 'markdown', ext = '.md'}}
+global.vimwiki_list = {{path = '~/Documents/vimwiki',
+                        path_html = '~/Documents/vimwiki/html',
+                        syntax = 'markdown', 
+                        ext = '.md',
+                        template_path = '~/Workspace/research/pandoc-goodies/templates/html5/github', 
+                        template_default= 'GitHub', 
+                        template_ext = '.html5',
+                        custom_wiki2html = '~/.config/nvim/scripts/wiki2html.sh',
+}}
 -- add extension to markdown links
 global.vimwiki_markdown_link_ext = 1 
-
-
+--global.vimwiki_listsyms = '✗○◐●✓'
+--global.vimwiki_customwiki2html='~/.local/share/nvim/site/pack/packer/start/vimwiki/autoload/vimwiki/customwiki2html.sh'
 -- key mappings
 
 local which_key_map = require('plugins.utils.whichkey').key_map

@@ -72,14 +72,31 @@ vim.g.mapleader      = [[-]]
 vim.g.maplocalleader = [[,]]
 
 local keymap = vim.api.nvim_set_keymap
--- keymap('n'. '<c-s>', ':w<CR>', {})
--- keymap('i'. '<c-s>', '<Esc>:w<CR>a', {})
+
+-- clean search highlight
+keymap('n', '<leader><space>', ':noh<CR>', {noremap = true, silent = true})
 
 -- better navigation between windows
 keymap('n', '<c-j>', '<c-w>j', {noremap = true})
 keymap('n', '<c-h>', '<c-w>h', {noremap = true})
 keymap('n', '<c-k>', '<c-w>k', {noremap = true})
 keymap('n', '<c-l>', '<c-w>l', {noremap = true})
+-- split window handling
+keymap('n', '<leader>w-', '<c-W>s', {noremap = true}) -- horizontal split
+keymap('n', '<leader>w|', '<c-W>v', {noremap = true}) -- vertical split
+keymap('n', '<leader>w=', '<c-W>=', {noremap = true}) -- balance windows
+-- Use alt + hjkl to resize windows
+keymap('n', '<m-j>', ':resize -2<CR>',          {noremap = true})
+keymap('n', '<m-k>', ':resize +2<CR>',          {noremap = true})
+keymap('n', '<m-h>', ':vertical resize -2<CR>', {noremap = true})
+keymap('n', '<m-l>', ':vertical resize +2<CR>', {noremap = true})
+
+-- move selected line / block of text in visual mode
+keymap('x', 'K', ':move \'<-2<CR>gv-gv', {noremap = true, silent = true})
+keymap('x', 'J', ':move \'>+1<CR>gv-gv', {noremap = true, silent = true})
+-- better indenting
+keymap('v', '<', '<gv', {noremap = true, silent = true})
+keymap('v', '>', '>gv', {noremap = true, silent = true})
 
 -- ############################################################################
 -- # PACKAGE MANAGEMENT
@@ -109,12 +126,12 @@ require('packer').startup(function()
     -- needed for autocompletion
     use {'hrsh7th/nvim-cmp', requires = {{"hrsh7th/cmp-buffer"},
                                          {"hrsh7th/cmp-nvim-lsp"},}}
+    use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
     -- telescope
     use {'nvim-telescope/telescope.nvim',   requires = {{'nvim-lua/plenary.nvim'} } }   
     use {'crispgm/telescope-heading.nvim',  requires = {{'nvim-telescope/telescope.nvim'},}}
     use {'sudormrfbin/cheatsheet.nvim',     requires = {{'nvim-telescope/telescope.nvim'},
                                                         {'nvim-lua/plenary.nvim'},}}
-
     -- floatterm
     use {'voldikss/vim-floaterm'}
     -- codi scratchpad
@@ -124,8 +141,8 @@ require('packer').startup(function()
     use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons'}
     -- theme/colorscheme
     use {"Pocco81/Catppuccino.nvim"}
-    use {'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
-    use {'akinsho/bufferline.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
+    use {'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons'}}
+    use {'akinsho/bufferline.nvim', requires = {'kyazdani42/nvim-web-devicons'}}
 end)
 
 -- ############################################################################
@@ -252,6 +269,7 @@ end
 require'cmp'.setup {
     sources = {   
         { name = 'nvim_lsp'},
+        { name = 'cmp_tabnine' },
         { name = 'buffer'  },
     },
     -- mapping = {
@@ -260,6 +278,13 @@ require'cmp'.setup {
     -- },
     completion = {completeopt = 'menu,menuone,noinsert'}
 }
+
+local tabnine = require('cmp_tabnine.config')
+tabnine:setup({
+        max_lines = 1000;
+        max_num_results = 20;
+        sort = true;
+})
 
 -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -324,7 +349,7 @@ require'nvim-treesitter.configs'.setup {
         enable = true,
         additional_vim_regex_highlighting = true,
     },
-    indent = {enable = true, disable = {"python", "html", "javascript"}},
+    indent = {enable = false, disable = {"python", "html", "javascript"}},
     autotag = {enable = true},
     context_commentstring = {
         enable = true, 
@@ -337,7 +362,7 @@ require'nvim-treesitter.configs'.setup {
 
 vim.g.nvim_tree_ignore = {'.git', 'node_modules', '.cache'} -- empty by default
 vim.g.nvim_tree_disable_netrw = 1  --"1 by default, disables netrw
-vim.g.nvim_tree_hijack_netrw = 1   --"1 by default, prevents netrw from automatically opening when opening directories (but lets you keep its other utilities)
+--vim.g.nvim_tree_hijack_netrw = 1   --"1 by default, prevents netrw from automatically opening when opening directories (but lets you keep its other utilities)
 vim.g.nvim_tree_hide_dotfiles = 1  --0 by default, this option hides files and folders starting with a dot `.`
 vim.g.nvim_tree_indent_markers = 1 --"0 by default, this option shows indent markers when folders are open
 vim.g.nvim_tree_follow = 1         --"0 by default, this option allows the cursor to be updated when entering a buffer

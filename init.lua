@@ -31,6 +31,7 @@ vim.bo.expandtab   = true               -- use space instead of tabs
 vim.bo.shiftwidth  = indent_size        -- size of an indent
 vim.bo.smartindent = true               -- indert indents automatically
 vim.bo.tabstop     = indent_size        -- number of spaces a tab counts for
+vim.bo.softtabstop = indent_size        -- number of spaces a tab counts for
 
 vim.o.mouse         = 'nvih'    -- enable mouse support (all but command mode)
 vim.o.hidden        = true      -- enable modified buffers in background
@@ -121,8 +122,10 @@ require('packer').startup(function()
     -- filemanager
     use {'kevinhwang91/rnvimr'}
     use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons'}
-    -- colorscheme
+    -- theme/colorscheme
     use {"Pocco81/Catppuccino.nvim"}
+    use {'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
+    use {'akinsho/bufferline.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
 end)
 
 -- ############################################################################
@@ -178,6 +181,15 @@ catppuccino.setup(
 
 -- load it
 catppuccino.load()
+
+require('lualine').setup{
+    options = { theme  = 'iceberg_dark' },
+}
+
+require'bufferline'.setup{}
+
+keymap('n', '<TAB>',   ':BufferLineCycleNext<CR>', {noremap = true, silent = true})
+keymap('n', '<S-TAB>', ':BufferLineCyclePrev<CR>', {noremap = true, silent = true})
 
 -- ############################################################################
 -- # LSP CONFIGURATION

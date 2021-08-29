@@ -1,5 +1,5 @@
 -- ############################################################################
--- # BASIC CONFIGURATIONS
+-- # DISABLE UNUSED PLUGINS
 -- ############################################################################
 vim.g.loaded_gzip = 1
 vim.g.loaded_zip = 1
@@ -31,6 +31,37 @@ vim.bo.expandtab   = true               -- use space instead of tabs
 vim.bo.shiftwidth  = indent_size        -- size of an indent
 vim.bo.smartindent = true               -- indert indents automatically
 vim.bo.tabstop     = indent_size        -- number of spaces a tab counts for
+
+vim.o.mouse         = 'nvih'    -- enable mouse support (all but command mode)
+vim.o.hidden        = true      -- enable modified buffers in background
+vim.o.splitbelow    = true      -- put new windows below current
+vim.o.splitright    = true      -- put new windows right of current
+
+vim.o.ignorecase    = true  -- ignore case letter when searching 
+vim.o.smartcase     = true  -- casesensitive if search string has upper case
+
+vim.o.termguicolors = true                      -- true color support
+vim.o.guifont       = 'Mononoki Nerd Font:h12'  -- font for gui frontends
+vim.o.clipboard     = 'unnamedplus' -- copy paste between vim and everything else
+
+vim.wo.number           = true      -- print line number
+-- vim.wo.relativenumber   = true      -- relative line numbers
+vim.wo.cursorline       = true      -- enable highlighting of the current line
+vim.wo.colorcolumn      = "80,120"  -- line wisth markers
+vim.wo.signcolumn       = 'yes:1'   -- show column for additional information (e.g. LSP)
+vim.wo.wrap             = false     -- disable line wrap
+
+-- performance
+vim.o.lazyredraw    = true  -- suppress redraw on command execution
+
+
+vim.cmd(':command! WQ wq')
+vim.cmd(':command! WQ wq')
+vim.cmd(':command! Wq wq')
+vim.cmd(':command! Wqa wqa')
+vim.cmd(':command! W w')
+vim.cmd(':command! Q q')
+vim.cmd(':command! Qa qa')
 
 -- ############################################################################
 -- # KEYBINDINGS
@@ -88,6 +119,7 @@ require('packer').startup(function()
     -- codi scratchpad
     use {'metakirby5/codi.vim'}
     -- filemanager
+    use {'kevinhwang91/rnvimr'}
     use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons'}
     -- colorscheme
     use {"Pocco81/Catppuccino.nvim"}
@@ -330,10 +362,17 @@ vim.g.nvim_tree_icons = {
     }
 }
 
-keymap('n', '<leader>e', ':NvimTreeToggle<CR>', {noremap = true})
-keymap('n', '<leader>r', ':NvimTreeRefresh<CR>', {noremap = true})
+keymap('n', '<leader>e',':NvimTreeToggle<CR>', {noremap = true})
+keymap('n', '<F5>',     ':NvimTreeRefresh<CR>', {noremap = true})
 --keymap('n', '<leader>f', ':NvimTreeFindFile<CR>', {noremap = true})
 
+
+-- Make Ranger replace netrw and be the file explorer
+vim.g.rnvimr_ex_enable = 1
+vim.g.rnvimr_draw_border = 1
+vim.g.rnvimr_bw_enable = 1
+
+keymap('n', '<leader>R',  ":RnvimrToggle<CR>", {noremap = true})
 
 -- ############################################################################
 -- # TELESCOPE
@@ -352,21 +391,6 @@ keymap('n', '<leader>fm', "<cmd>lua require('telescope.builtin').oldfiles()<CR>"
 keymap('n', '<leader>;',  "<cmd>lua require('telescope.builtin').buffers()<CR>", {noremap = true})
 keymap('n', '<leader>r',  "<cmd>lua require('telescope.builtin').file_browser()<CR>", {noremap = true})
 keymap('n', '<leader>/',  "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>", {noremap = true})
-
--- use file find if started with directory 
-_G.open_telescope = function()
-    local first_arg = vim.v.argv[2]
-    if first_arg and vim.fn.isdirectory(first_arg) == 1 then
-        require("telescope.builtin").find_files({search_dirs = {first_arg}})
-    end
-end
-
-vim.api.nvim_exec([[
-augroup TelescopeOnEnter
-    autocmd!
-    autocmd VimEnter * lua open_telescope()
-augroup END
-]], false)
 
 -- ############################################################################
 -- # FLOATTERM

@@ -1,6 +1,30 @@
 -- ############################################################################
 -- # BASIC CONFIGURATIONS
 -- ############################################################################
+vim.g.loaded_gzip = 1
+vim.g.loaded_zip = 1
+vim.g.loaded_zipPlugin = 1
+vim.g.loaded_tar = 1
+vim.g.loaded_tarPlugin = 1
+
+vim.g.loaded_getscript = 1
+vim.g.loaded_getscriptPlugin = 1
+vim.g.loaded_vimball = 1
+vim.g.loaded_vimballPlugin = 1
+vim.g.loaded_2html_plugin = 1
+
+vim.g.loaded_matchit = 1
+vim.g.loaded_matchparen = 1
+vim.g.loaded_logiPat = 1
+vim.g.loaded_rrhelper = 1
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrwSettings = 1
+
+-- ############################################################################
+-- # BASIC CONFIGURATIONS
+-- ############################################################################
 
 local indent_size = 4
 vim.bo.expandtab   = true               -- use space instead of tabs
@@ -8,11 +32,9 @@ vim.bo.shiftwidth  = indent_size        -- size of an indent
 vim.bo.smartindent = true               -- indert indents automatically
 vim.bo.tabstop     = indent_size        -- number of spaces a tab counts for
 
-
 -- ############################################################################
 -- # KEYBINDINGS
 -- ############################################################################
-
 
 vim.g.mapleader      = [[-]]
 vim.g.maplocalleader = [[,]]
@@ -26,7 +48,6 @@ keymap('n', '<c-j>', '<c-w>j', {noremap = true})
 keymap('n', '<c-h>', '<c-w>h', {noremap = true})
 keymap('n', '<c-k>', '<c-w>k', {noremap = true})
 keymap('n', '<c-l>', '<c-w>l', {noremap = true})
-
 
 -- ############################################################################
 -- # PACKAGE MANAGEMENT
@@ -54,8 +75,18 @@ require('packer').startup(function()
     use {'nvim-treesitter/nvim-treesitter-textobjects'}
 
     -- needed for autocompletion
-    use {'hrsh7th/nvim-cmp', requires = {"hrsh7th/cmp-buffer",
-                                         "hrsh7th/cmp-nvim-lsp",}}
+    use {'hrsh7th/nvim-cmp', requires = {{"hrsh7th/cmp-buffer"},
+                                         {"hrsh7th/cmp-nvim-lsp"},}}
+    -- telescope
+    use {'nvim-telescope/telescope.nvim',   requires = {{'nvim-lua/plenary.nvim'} } }   
+    use {'crispgm/telescope-heading.nvim',  requires = {{'nvim-telescope/telescope.nvim'},}}
+    use {'sudormrfbin/cheatsheet.nvim',     requires = {{'nvim-telescope/telescope.nvim'},
+                                                        {'nvim-lua/plenary.nvim'},}}
+
+    -- floatterm
+    use {'voldikss/vim-floaterm'}
+    -- codi scratchpad
+    use {'metakirby5/codi.vim'}
     -- filemanager
     use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons'}
     -- colorscheme
@@ -71,46 +102,46 @@ local catppuccino = require("catppuccino")
 -- configure it
 catppuccino.setup(
     {
-		colorscheme = "catppuccino",
-		transparency = false,
-		styles = {
-			comments = "italic",
-			functions = "italic",
-			keywords = "italic",
-			strings = "NONE",
-			variables = "NONE",
-		},
-		integrations = {
-			treesitter = true,
-			native_lsp = {
-				enabled = true,
-				styles = {
-					errors = "italic",
-					hints = "italic",
-					warnings = "italic",
-					information = "italic"
-				}
-			},
-			lsp_trouble = false,
-			lsp_saga = false,
-			gitgutter = false,
-			gitsigns = false,
-			telescope = false,
-			nvimtree = {
-				enabled = false,
-				show_root = false,
-			},
-			which_key = false,
-			indent_blankline = false,
-			dashboard = false,
-			neogit = false,
-			vim_sneak = false,
-			fern = false,
-			barbar = false,
-			bufferline = false,
-			markdown = false,
-		}
-	}
+        colorscheme = "catppuccino",
+        transparency = false,
+        styles = {
+            comments = "italic",
+            functions = "italic",
+            keywords = "italic",
+            strings = "NONE",
+            variables = "NONE",
+        },
+        integrations = {
+            treesitter = true,
+            native_lsp = {
+                enabled = true,
+                styles = {
+                    errors = "italic",
+                    hints = "italic",
+                    warnings = "italic",
+                    information = "italic"
+                }
+            },
+            lsp_trouble = false,
+            lsp_saga = false,
+            gitgutter = false,
+            gitsigns = false,
+            telescope = false,
+            nvimtree = {
+                enabled = false,
+                show_root = false,
+            },
+            which_key = false,
+            indent_blankline = false,
+            dashboard = false,
+            neogit = false,
+            vim_sneak = false,
+            fern = false,
+            barbar = false,
+            bufferline = false,
+            markdown = false,
+        }
+    }
 )
 
 -- load it
@@ -141,7 +172,8 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
     buf_set_keymap('n', 'gT', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
     buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-    buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+    --buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+    buf_set_keymap('n', 'gr', "<cmd>lua require('telescope.builtin').lsp_references()<CR>", opts)
     buf_set_keymap('n', 'gh', "<cmd>lua require('lspsaga.provider').lsp_finder()<CR>", opts)
    
     -- buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)<CR>", opts)
@@ -251,10 +283,10 @@ require'nvim-treesitter.configs'.setup {
     indent = {enable = true, disable = {"python", "html", "javascript"}},
     autotag = {enable = true},
     context_commentstring = {
-	    enable = true, 
-	    config = {
-		    javascriptreact = {style_element = '{/*%s*/}'}
-	    },
+        enable = true, 
+        config = {
+            javascriptreact = {style_element = '{/*%s*/}'}
+        },
     },
     refactor = {highlight_definitions = {enable = true}},
 }
@@ -302,4 +334,50 @@ keymap('n', '<leader>e', ':NvimTreeToggle<CR>', {noremap = true})
 keymap('n', '<leader>r', ':NvimTreeRefresh<CR>', {noremap = true})
 --keymap('n', '<leader>f', ':NvimTreeFindFile<CR>', {noremap = true})
 
+
+-- ############################################################################
+-- # TELESCOPE
+-- ############################################################################
+
+require('telescope').load_extension('heading')
+
+keymap('n', '<leader>pp', "<cmd>lua require('telescope.builtin').builtin()<CR>", {noremap = true})
+
+keymap('n', '<leader>ft', "<cmd>:Telescope heading<CR>", {noremap = true})
+keymap('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<CR>", {noremap = true})
+keymap('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<CR>", {noremap = true})
+keymap('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<CR>", {noremap = true})
+keymap('n', '<leader>fm', "<cmd>lua require('telescope.builtin').oldfiles()<CR>", {noremap = true})
+
+keymap('n', '<leader>;',  "<cmd>lua require('telescope.builtin').buffers()<CR>", {noremap = true})
+keymap('n', '<leader>r',  "<cmd>lua require('telescope.builtin').file_browser()<CR>", {noremap = true})
+keymap('n', '<leader>/',  "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>", {noremap = true})
+
+-- use file find if started with directory 
+_G.open_telescope = function()
+    local first_arg = vim.v.argv[2]
+    if first_arg and vim.fn.isdirectory(first_arg) == 1 then
+        require("telescope.builtin").find_files({search_dirs = {first_arg}})
+    end
+end
+
+vim.api.nvim_exec([[
+augroup TelescopeOnEnter
+    autocmd!
+    autocmd VimEnter * lua open_telescope()
+augroup END
+]], false)
+
+-- ############################################################################
+-- # FLOATTERM
+-- ############################################################################
+
+vim.g.floaterm_keymap_new   = '<Leader>tt'
+vim.g.floaterm_keymap_next  = '<Leader>tl'
+vim.g.floaterm_keymap_prev  = '<Leader>th'
+vim.g.floaterm_keymap_toggle = '<F12>'
+
+vim.g.floaterm_width  = 0.8
+vim.g.floaterm_height = 0.8
+vim.g.floaterm_autoclose = 1
 

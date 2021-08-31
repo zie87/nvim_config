@@ -74,6 +74,40 @@ This configuration uses some plugins to simplify the LSP server configurations:
 * [nvim-lspinstall](https://github.com/kabouzeid/nvim-lspinstall): adds install features for [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 * [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim): provides a performent UI for LSP data
 
+### Keyboard Shortcuts
+
+| mode  | keys      | effect                    |
+|:-----:|:---------:|:--------------------------|
+| **n** |`gD`       | goto declaration          |
+| **n** |`gd`       | goto definition           |
+| **n** |`gT`       | goto type definition      |
+| **n** |`gi`       | list all implementations  |
+| **n** |`gr`       | list all references       |  
+| **n** |`gh`       | find references           |   
+| **n** |`K`        | show hover                |    
+| **n** |`C-k`      | show signature help       |
+
+
+| mode  | keys          | effect                    |
+|:-----:|:-------------:|:--------------------------|
+| **n** |`<space>wa`    | add workspace folder      |
+| **n** |`<space>wr`    | remove workspace folder   |
+| **n** |`<space>wl`    | list workspace folder     |
+
+| mode  | keys          | effect                    |
+|:-----:|:-------------:|:--------------------------|
+| **n** |`<space>f`     | format current buffer     |
+| **n** |`<space>cr`    | rename                    |
+| **n** |`<space>ca`    | code action               |
+| **v** |`<space>ca`    | range code action         |
+
+| mode  | keys          | effect                            |
+|:-----:|:-------------:|:----------------------------------|
+| **n** |`<space>q`     | set diagnostic loclist            |
+| **n** |`<space>dl`    | show line diagnostic              |
+| **n** |`<space>dn`    | goto next diagnostic error        |
+| **n** |`<space>dn`    | goto previous diagnostic error    |
+
 ## Code Completion
 
 Code completion are provided via [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) the plugins are:
@@ -81,6 +115,30 @@ Code completion are provided via [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 * [cmp-buffer](https://github.com/hrsh7th/cmp-buffer): [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) source for buffer words
 * [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp): [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) source for [Neovim](https://neovim.io/) builtin LSP
 * [cmp-tabnine](https://github.com/tzachar/cmp-tabnine): [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) source for [tabnine](https://www.tabnine.com/) AI source completion
+
+## Telescope (fuzzy finder)
+
+[Telescope](https://github.com/nvim-telescope/telescope.nvim) is used as fuzzy finder and general utility plugin
+* [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim): extensible fuzzy finder over lists
+* [telescope-heading.nvim](https://github.com/crispgm/telescope-heading.nvim): switch between headings (Markdown, AsciiDoc, ...)
+* [cheatsheet.nvim](https://github.com/sudormrfbin/cheatsheet.nvim): searchable cheatsheets 
+
+### Keyboard Shortcuts
+
+| mode  | keys          | effect                    |
+|:-----:|:-------------:|:--------------------------|
+| **n** |`<leader>pp`   | telescope builtins        |
+| **n** |`<leader>ft`   | telescope headings        |
+| **n** |`<leader>ff`   | find files                |
+| **n** |`<leader>fg`   | live grep                 |
+| **n** |`<leader>fh`   | help tags                 |
+| **n** |`<leader>fm`   | recently used files       |
+
+| mode  | keys          | effect                    |
+|:-----:|:-------------:|:--------------------------|
+| **n** |`<leader>;`    | telescope buffer          |
+| **n** |`<leader>r`    | file browser              |
+| **n** |`<leader>/`    | fuzzy find current buffer |
 
 # Guides and resources
 

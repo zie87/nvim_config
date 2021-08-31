@@ -82,3 +82,37 @@ Code completion are provided via [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 * [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp): [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) source for [Neovim](https://neovim.io/) builtin LSP
 * [cmp-tabnine](https://github.com/tzachar/cmp-tabnine): [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) source for [tabnine](https://www.tabnine.com/) AI source completion
 
+# Guides and resources
+
+* [Awesome Neovim (rockerBOO)](https://github.com/rockerBOO/awesome-neovim)
+* [r/neovim](https://www.reddit.com/r/neovim/)
+
+* [A Vim Guide For Experts](https://thevaluable.dev/vim-expert/)
+* [Getting started using Lua in Neovim](https://github.com/nanotee/nvim-lua-guide)
+
+# Other configurations
+
+* [NvChad](https://github.com/NvChad/NvChad)
+* [brainfucksec](https://github.com/brainfucksec/neovim-lua)
+* [ibhagwan](https://github.com/ibhagwan/nvim-lua)
+* [tjdevries](https://github.com/tjdevries/config_manager/tree/master/xdg_config/nvim)
+
+# TODOS
+
+* Debug Adapter Protocol (DAP)
+    - [nvim-dap](https://github.com/mfussenegger/nvim-dap)
+    - [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
+
+# NOTES/MAYBE
+
+* [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)
+* [nvim-treesitter-context](https://github.com/romgrk/nvim-treesitter-context)
+* [spellsitter](https://github.com/lewis6991/spellsitter.nvim)
+* 
+* [kommentary](https://github.com/b3nj5m1n/kommentary)
+* [cmp-vsnip](https://github.com/hrsh7th/cmp-vsnip)
+* [cmp-path](https://github.com/hrsh7th/cmp-path)
+* [fzf-lua](https://github.com/ibhagwan/fzf-lua)
+* [diffview.nvim](https://github.com/sindrets/diffview.nvim)
+* [which-key.nvim](https://github.com/folke/which-key.nvim)
+* [vim-ultest](https://github.com/rcarriga/vim-ultest)

@@ -3,11 +3,11 @@
 -- ############################################################################
 
 local indent_size = 4
-vim.bo.expandtab   = true               -- use space instead of tabs
-vim.bo.shiftwidth  = indent_size        -- size of an indent
-vim.bo.smartindent = true               -- indert indents automatically
-vim.bo.tabstop     = indent_size        -- number of spaces a tab counts for
-vim.bo.softtabstop = indent_size        -- number of spaces a tab counts for
+vim.opt.expandtab   = true               -- use space instead of tabs
+vim.opt.shiftwidth  = indent_size        -- size of an indent
+vim.opt.smartindent = true               -- indert indents automatically
+vim.opt.tabstop     = indent_size        -- number of spaces a tab counts for
+--vim.bo.softtabstop = indent_size        -- number of spaces a tab counts for
 
 vim.o.mouse         = 'nvih'    -- enable mouse support (all but command mode)
 vim.o.hidden        = true      -- enable modified buffers in background

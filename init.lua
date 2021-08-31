@@ -10,14 +10,13 @@
 --                               
 -- Github: https://github.com/zie87/nvim_config
 
-
--- disable unused plugins
-require("zie/disable_plugins")
 -- load base configurations
 require("zie/base_config")
 -- load keymappings
 require("zie/keymappings")
 
+-- disable unused plugins
+require("zie/disable_plugins")
 -- load plugins
 require("zie/plugins")
 

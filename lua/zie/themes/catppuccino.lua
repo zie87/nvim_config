@@ -1,14 +1,11 @@
--- ############################################################################
--- # COLORSCHEME
--- ############################################################################
-
 local catppuccino = require("catppuccino")
 
 -- configure it
 catppuccino.setup(
     {
         colorscheme = "dark_catppuccino",
-        transparency = false,
+        transparency = true,
+        term_colors = true,
         styles = {
             comments = "italic",
             functions = "italic",
@@ -20,21 +17,27 @@ catppuccino.setup(
             treesitter = true,
             native_lsp = {
                 enabled = true,
-                styles = {
+                virtual_text = {
                     errors = "italic",
                     hints = "italic",
                     warnings = "italic",
-                    information = "italic"
+                    information = "italic",
+                },
+                underlines = {
+                    errors = "underline",
+                    hints = "underline",
+                    warnings = "underline",
+                    information = "underline",
                 }
             },
             lsp_trouble = false,
-            lsp_saga = false,
+            lsp_saga = true,
             gitgutter = false,
             gitsigns = false,
-            telescope = false,
+            telescope = true,
             nvimtree = {
-                enabled = false,
-                show_root = false,
+                enabled = true,
+                show_root = true,
             },
             which_key = false,
             indent_blankline = false,
@@ -44,23 +47,11 @@ catppuccino.setup(
             fern = false,
             barbar = false,
             bufferline = false,
-            markdown = false,
+            markdown = true,
         }
     }
 )
 
 -- load it
 catppuccino.load()
-
-
-require('lualine').setup{
-    options = { theme  = 'iceberg_dark' },
-}
-
-require'bufferline'.setup{}
-
-local keymap = vim.api.nvim_set_keymap
-keymap('n', '<TAB>',   ':BufferLineCycleNext<CR>', {noremap = true, silent = true})
-keymap('n', '<S-TAB>', ':BufferLineCyclePrev<CR>', {noremap = true, silent = true})
-
 

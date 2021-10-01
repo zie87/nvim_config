@@ -20,9 +20,6 @@ require("zie/disable_plugins")
 -- load plugins
 require("zie/plugins")
 
--- theme/colorscheme
-require("zie/themes")
-
 -- lsp & completion config
 require("zie/lsp")
 require("zie/treesitter")
@@ -31,3 +28,6 @@ require("zie/treesitter")
 require("zie/filebrowser")
 require("zie/telescope")
 require("zie/floaterm")
+
+-- theme/colorscheme
+require("zie/themes")

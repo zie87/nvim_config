@@ -41,6 +41,9 @@ require('packer').startup(function()
     use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons'}
     -- theme/colorscheme
     use {"Pocco81/Catppuccino.nvim"}
+    use {"projekt0n/github-nvim-theme"}
+    use {'EdenEast/nightfox.nvim'}
+    use {'sainnhe/sonokai'}
     use {'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons'}}
     use {'akinsho/bufferline.nvim', requires = {'kyazdani42/nvim-web-devicons'}}
 end)

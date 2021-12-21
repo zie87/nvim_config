@@ -1,33 +1,41 @@
--- 
---  ▄███████▄   ▄█     ▄████████ 
--- ██▀     ▄██ ███    ███    ███ 
---       ▄███▀ ███▌   ███    █▀  
---  ▀█▀▄███▀▄▄ ███▌  ▄███▄▄▄     
---   ▄███▀   ▀ ███▌ ▀▀███▀▀▀     
--- ▄███▀       ███    ███    █▄  
--- ███▄     ▄█ ███    ███    ███ 
---  ▀████████▀ █▀     ██████████ 
---                               
+-- ############################################################################
+--
+--  ▄███████▄   ▄█     ▄████████
+-- ██▀     ▄██ ███    ███    ███
+--       ▄███▀ ███▌   ███    █▀
+--  ▀█▀▄███▀▄▄ ███▌  ▄███▄▄▄
+--   ▄███▀   ▀ ███▌ ▀▀███▀▀▀
+-- ▄███▀       ███    ███    █▄
+-- ███▄     ▄█ ███    ███    ███
+--  ▀████████▀ █▀     ██████████
+--
 -- Github: https://github.com/zie87/nvim_config
 --
--- load base configurations
-require("zie/base_config")
--- load keymappings
-require("zie/keymappings")
+-- ############################################################################
 
--- disable unused plugins
-require("zie/disable_plugins")
+vim.g.mapleader = [[-]]
+vim.g.maplocalleader = [[,]]
+
+-- TODO: Whichkey
+-- TODO: Dashboard
+-- TODO: luasnip
+-- TODO: lsp-saga?
+-- TODO: Harpoon? https://github.com/ThePrimeagen/harpoon
+-- TODO: floaterm
+-- TODO: codi
+
+-- load basic configs
+require "zie/base_cfg"
+require "zie/performance"
 -- load plugins
-require("zie/plugins")
-
--- lsp & completion config
-require("zie/lsp")
-require("zie/treesitter")
-
--- utils
-require("zie/filebrowser")
-require("zie/telescope")
-require("zie/floaterm")
-
--- theme/colorscheme
-require("zie/themes")
+require "zie/plugins"
+-- load file management
+require "zie/fb"
+-- language config
+require "zie/lsp"
+require "zie/dap"
+require "zie/refactoring"
+-- telescope
+require "zie/telescope"
+-- load theme
+require "zie/theme"

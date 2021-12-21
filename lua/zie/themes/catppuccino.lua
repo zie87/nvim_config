@@ -1,7 +1,7 @@
-local catppuccino = require("catppuccino")
+local catppuccin = require("catppuccin")
 
 -- configure it
-catppuccino.setup(
+catppuccin.setup(
     {
         colorscheme = "dark_catppuccino",
         transparency = true,
@@ -53,5 +53,5 @@ catppuccino.setup(
 )
 
 -- load it
-catppuccino.load()
+catppuccin.load()
 

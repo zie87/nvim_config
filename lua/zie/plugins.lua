@@ -26,6 +26,8 @@ require('packer').startup(function()
     -- needed for autocompletion
     use {'hrsh7th/nvim-cmp', requires = {{"hrsh7th/cmp-buffer"},
                                          {"hrsh7th/cmp-nvim-lsp"},}}
+    use {'hrsh7th/cmp-copilot', requires =  {{'hrsh7th/nvim-cmp'},
+                                             {'github/copilot.vim'},}}
     use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
     -- telescope
     use {'nvim-telescope/telescope.nvim',   requires = {{'nvim-lua/plenary.nvim'} } }   

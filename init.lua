@@ -9,7 +9,7 @@
 --  ▀████████▀ █▀     ██████████ 
 --                               
 -- Github: https://github.com/zie87/nvim_config
-
+--
 -- load base configurations
 require("zie/base_config")
 -- load keymappings

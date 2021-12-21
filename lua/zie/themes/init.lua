@@ -2,8 +2,8 @@
 -- # COLORSCHEME
 -- ############################################################################
 
-require('zie.themes.catppuccino')
--- require('zie.themes.github')
+-- require('zie.themes.catppuccino')
+require('zie.themes.github')
 -- require('zie.themes.nightfox')
 -- require('zie.themes.sonokai')
 

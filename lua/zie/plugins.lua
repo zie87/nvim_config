@@ -61,6 +61,9 @@ require("packer").startup(function()
       { "nvim-telescope/telescope.nvim" },
     },
   }
+  -- terminal
+  use { "akinsho/toggleterm.nvim" }
   -- themes
   use { "EdenEast/nightfox.nvim" }
+  use {'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons'}}
 end)

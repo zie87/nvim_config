@@ -3,3 +3,9 @@
 -- ############################################################################
 
 require "zie.theme.nightfox"
+
+require("lualine").setup {
+  options = {
+    theme = "nightfox",
+  },
+}

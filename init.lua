@@ -22,7 +22,6 @@ vim.g.maplocalleader = [[,]]
 -- TODO: Harpoon? https://github.com/ThePrimeagen/harpoon
 -- TODO: Whichkey?
 -- TODO: codi
--- TODO: floaterm
 
 -- load basic configs
 require "zie/base_cfg"
@@ -38,5 +37,7 @@ require "zie/dap"
 require "zie/refactoring"
 -- telescope
 require "zie/telescope"
+-- terminal
+require "zie/terminal"
 -- load theme
 require "zie/theme"

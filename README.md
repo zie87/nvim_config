@@ -20,3 +20,13 @@
 | mode  | keys          | effect                    |
 |:-----:|:-------------:|:--------------------------|
 | **n** |`<leader>/`    | fuzzy find current buffer |
+
+## Terminals
+
+[toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) plugin to persist and toggle multiple terminals during an editing session
+
+| mode  | keys          | effect                    |
+|:-----:|:-------------:|:--------------------------|
+| **n** |`C-t`          | toggle horizontal terminal|
+| **n** |`<leader>tp`   | open bpython              |
+| **n** |`<leader>tg`   | open gitui                |

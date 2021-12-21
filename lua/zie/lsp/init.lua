@@ -1,6 +1,3 @@
--- TODO: clangd config
--- TODO: cross compiling
-
 local cmp = require "cmp"
 local source_mapping = {
   buffer = "[Buffer]",
@@ -175,6 +172,10 @@ require("null-ls").setup(config {
   },
 })
 
+-------------------------------------------------------------------------------
+-- LUA CONFIGURATION
+-- ----------------------------------------------------------------------------
+
 local sumneko_root_path = vim.fn.stdpath "data" .. "/bin"
 local sumneko_script = sumneko_root_path .. "/sumneko-lua-language-server"
 
@@ -222,5 +223,32 @@ require("lspconfig").sumneko_lua.setup(config {
     },
   },
 })
+-------------------------------------------------------------------------------
+-- CPP CONFIGURATION
+-- ----------------------------------------------------------------------------
+
+-- TODO: cross compiling
+-- TODO: make it work with zephyr west
+
+local util = require "lspconfig.util"
+
+require("lspconfig").clangd.setup(config {
+  cmd = {
+    "clangd",
+    "--background-index",
+    "--suggest-missing-includes",
+    "--clang-tidy",
+    "--header-insertion=iwyu",
+  },
+  filetypes = { "c", "cpp", "objc", "objcpp" },
+  init_options = {
+    clangdFileStatus = true,
+  },
+  root_dir = util.root_pattern("compile_commands.json", "compile_flags.txt", "build", ".git"),
+})
+
+-------------------------------------------------------------------------------
+-- OTHER CONFIGURATION
+-- ----------------------------------------------------------------------------
 
 require "zie.lsp.treesitter"

@@ -16,17 +16,18 @@
 vim.g.mapleader = [[-]]
 vim.g.maplocalleader = [[,]]
 
--- TODO: Whichkey
 -- TODO: Dashboard
 -- TODO: luasnip
 -- TODO: lsp-saga?
 -- TODO: Harpoon? https://github.com/ThePrimeagen/harpoon
--- TODO: floaterm
+-- TODO: Whichkey?
 -- TODO: codi
+-- TODO: floaterm
 
 -- load basic configs
 require "zie/base_cfg"
 require "zie/performance"
+require "zie/keymap"
 -- load plugins
 require "zie/plugins"
 -- load file management

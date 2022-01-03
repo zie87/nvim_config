@@ -17,11 +17,15 @@ vim.g.mapleader = [[-]]
 vim.g.maplocalleader = [[,]]
 
 -- TODO: Dashboard
--- TODO: luasnip
+-- TODO: luasni
+-- TODO: codi
 -- TODO: lsp-saga?
 -- TODO: Harpoon? https://github.com/ThePrimeagen/harpoon
 -- TODO: Whichkey?
--- TODO: codi
+
+-- TODO: west build Integration
+-- TODO: remote container integration
+-- TODO: spell-cmp and spellsitter
 
 -- load basic configs
 require "zie/base_cfg"
@@ -35,9 +39,14 @@ require "zie/fb"
 require "zie/lsp"
 require "zie/dap"
 require "zie/refactoring"
+require "zie/cmake"
+-- session handling
+require "zie/session"
 -- telescope
 require "zie/telescope"
 -- terminal
 require "zie/terminal"
+-- general utils
+require "zie/utils"
 -- load theme
 require "zie/theme"

@@ -15,6 +15,8 @@ require("telescope").setup {
 -- load_extension, somewhere after setup function:
 require("telescope").load_extension "fzf"
 require("telescope").load_extension "dap"
+require("telescope").load_extension "session-lens"
+require("telescope").load_extension "cmake"
 
 local keymap = vim.api.nvim_set_keymap
 keymap("n", "<leader>pp", "<cmd>lua require('telescope.builtin').builtin()<CR>", { noremap = true })
@@ -25,5 +27,7 @@ keymap("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR
 keymap("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<CR>", { noremap = true })
 keymap("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<CR>", { noremap = true })
 keymap("n", "<leader>fm", "<cmd>lua require('telescope.builtin').oldfiles()<CR>", { noremap = true })
+keymap("n", "<leader>fs", "<cmd>lua require('session-lens').search_session()<CR>", { noremap = true })
+keymap("n", "<leader>fq", "<cmd>lua require('telescope.builtin').quickfix()<CR>", { noremap = true })
 
 keymap("n", "<leader>/", "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>", { noremap = true })

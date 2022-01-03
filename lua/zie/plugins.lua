@@ -61,9 +61,26 @@ require("packer").startup(function()
       { "nvim-telescope/telescope.nvim" },
     },
   }
-  -- terminal
+  -- build systems
+  use {
+    "Shatur/neovim-cmake",
+    requires = {
+      { "mfussenegger/nvim-dap" },
+      { "nvim-telescope/telescope.nvim" },
+    },
+  }
+  -- sessions
+  use { "rmagatti/auto-session" }
+  use {
+    "rmagatti/session-lens",
+    requires = { { "rmagatti/auto-session" }, { "nvim-telescope/telescope.nvim" } },
+  }
+  -- others
   use { "akinsho/toggleterm.nvim" }
+  use { "muellan/vim-brace-for-umlauts" }
+  use { "Yggdroot/indentLine" }
+  use { "lewis6991/spellsitter.nvim", requires = "nvim-treesitter/nvim-treesitter" }
   -- themes
   use { "EdenEast/nightfox.nvim" }
-  use {'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons'}}
+  use { "hoob3rt/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } }
 end)

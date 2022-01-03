@@ -1,6 +1,5 @@
 # Zie's Neovim
 
-
 ## Telescope (fuzzy-finder)
 
 [Telescope](https://github.com/nvim-telescope/telescope.nvim) is used as fuzzy finder and general utility plugin
@@ -30,3 +29,10 @@
 | **n** |`C-t`          | toggle horizontal terminal|
 | **n** |`<leader>tp`   | open bpython              |
 | **n** |`<leader>tg`   | open gitui                |
+
+## Sessions
+
+## Utilities
+
+* [vim-brace-for-umlauts](https://github.com/muellan/vim-brace-for-umlauts): simple VIM plugin to improve the coding experience on German QUERTZ keyboards
+* [indenLine](https://github.com/Yggdroot/indentLine):  displaying thin vertical lines at each indentation level

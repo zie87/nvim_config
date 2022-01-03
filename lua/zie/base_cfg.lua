@@ -20,6 +20,11 @@ vim.o.smartcase = true -- casesensitive if search string has upper case
 vim.o.termguicolors = true -- true color support
 vim.o.guifont = "Mononoki Nerd Font:h12" -- font for gui frontends
 vim.o.clipboard = "unnamedplus" -- copy paste between vim and everything else
+-- spelling config
+vim.o.spelllang = "en,cjk"
+vim.o.spellsuggest = "best, 9"
+-- session config
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 
 vim.wo.number = true -- print line number
 -- vim.wo.relativenumber   = true      -- relative line numbers

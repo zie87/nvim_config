@@ -16,7 +16,7 @@ require("telescope").setup {
 require("telescope").load_extension "fzf"
 require("telescope").load_extension "dap"
 require("telescope").load_extension "session-lens"
-require("telescope").load_extension "cmake"
+-- require("telescope").load_extension "cmake"
 
 local keymap = vim.api.nvim_set_keymap
 keymap("n", "<leader>pp", "<cmd>lua require('telescope.builtin').builtin()<CR>", { noremap = true })

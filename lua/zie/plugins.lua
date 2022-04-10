@@ -40,7 +40,6 @@ require("packer").startup(function()
     "hrsh7th/nvim-cmp",
     requires = { { "hrsh7th/cmp-buffer" }, { "hrsh7th/cmp-nvim-lsp" } },
   }
-  use { "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp" }
   use { "onsails/lspkind-nvim" }
   -- refactoring
   use {

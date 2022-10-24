@@ -5,4 +5,4 @@
 -- tree handling
 require "zie.fb.tree"
 -- ranger integration
-require "zie.fb.ranger"
+require "zie.fb.fm-nvim"

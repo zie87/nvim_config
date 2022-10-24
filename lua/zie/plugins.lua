@@ -16,7 +16,7 @@ require("packer").startup(function()
   use { "wbthomason/packer.nvim" }
   -- file management
   use { "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" }
-  use { "kevinhwang91/rnvimr" }
+  use {'is0n/fm-nvim'}
   -- Highlight, edit, and navigate code using a fast incremental parsing library
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
   use { "p00f/nvim-ts-rainbow", requires = "nvim-treesitter/nvim-treesitter" }

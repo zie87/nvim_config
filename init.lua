@@ -13,23 +13,19 @@
 --
 -- ############################################################################
 
+-- disable netrw at the very start of your init.lua (strongly advised)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
+
 vim.g.mapleader = [[-]]
 vim.g.maplocalleader = [[,]]
 
--- TODO: Dashboard
--- TODO: luasni
--- TODO: codi
--- TODO: lsp-saga?
--- TODO: Harpoon? https://github.com/ThePrimeagen/harpoon
--- TODO: Whichkey?
-
--- TODO: west build Integration
--- TODO: remote container integration
--- TODO: spell-cmp and spellsitter
-
 -- load basic configs
-require "zie/base_cfg"
 require "zie/performance"
+require "zie/base_cfg"
 require "zie/keymap"
 -- load plugins
 require "zie/plugins"
@@ -39,7 +35,6 @@ require "zie/fb"
 require "zie/lsp"
 require "zie/dap"
 require "zie/refactoring"
-require "zie/cmake"
 -- session handling
 require "zie/session"
 -- telescope

@@ -27,7 +27,7 @@ vim.o.spellsuggest = "best, 9"
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 
 vim.wo.number = true -- print line number
--- vim.wo.relativenumber   = true      -- relative line numbers
+vim.wo.relativenumber   = true      -- relative line numbers
 vim.wo.cursorline = true -- enable highlighting of the current line
 vim.wo.colorcolumn = "80,120" -- line wisth markers
 vim.wo.signcolumn = "yes:1" -- show column for additional information (e.g. LSP)

@@ -2,7 +2,10 @@
 -- # COLORSCHEME
 -- ############################################################################
 
-require "zie.theme.nightfox"
+--require "zie.theme.nightfox"
+--require "zie.theme.kanagawa"
+--require "zie.theme.adwaita"
+require "zie.theme.doom_one"
 
 require("lualine").setup {
     options = {

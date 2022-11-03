@@ -80,5 +80,8 @@ require("packer").startup(function()
     use { "Yggdroot/indentLine" }
     -- themes
     use { "EdenEast/nightfox.nvim" }
+    use { "rebelot/kanagawa.nvim" }
+    use { "Mofiqul/adwaita.nvim" }
+    use { "NTBBloodbath/doom-one.nvim" }
     use { "hoob3rt/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } }
 end)

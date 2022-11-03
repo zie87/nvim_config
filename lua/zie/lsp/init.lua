@@ -212,9 +212,6 @@ require("lspconfig").sumneko_lua.setup(config {
 -- CPP CONFIGURATION
 -- ----------------------------------------------------------------------------
 
--- TODO: cross compiling
--- TODO: make it work with zephyr west
-
 local util = require "lspconfig.util"
 
 require("lspconfig").clangd.setup(config {

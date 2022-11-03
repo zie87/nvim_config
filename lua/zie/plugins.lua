@@ -16,7 +16,6 @@ require("packer").startup(function()
     use { "wbthomason/packer.nvim" }
     -- file management
     use { "nvim-tree/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" }
-    use { 'is0n/fm-nvim' }
     -- Highlight, edit, and navigate code using a fast incremental parsing library
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
     use { "p00f/nvim-ts-rainbow", requires = "nvim-treesitter/nvim-treesitter" }
@@ -31,6 +30,7 @@ require("packer").startup(function()
     -- telescope
     use { "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" }
     use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
+    use { "nvim-telescope/telescope-file-browser.nvim", requires = "nvim-telescope/telescope.nvim" }
     -- lsp
     use { "neovim/nvim-lspconfig" }
     -- formatting
@@ -78,7 +78,6 @@ require("packer").startup(function()
     use { "akinsho/toggleterm.nvim" }
     use { "muellan/vim-brace-for-umlauts" }
     use { "Yggdroot/indentLine" }
-    use { "lewis6991/spellsitter.nvim", requires = "nvim-treesitter/nvim-treesitter" }
     -- themes
     use { "EdenEast/nightfox.nvim" }
     use { "hoob3rt/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } }

@@ -41,6 +41,8 @@ require "zie/session"
 require "zie/telescope"
 -- terminal
 require "zie/terminal"
+-- neorg
+require "zie/neorg"
 -- general utils
 require "zie/utils"
 -- load theme

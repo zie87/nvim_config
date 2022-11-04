@@ -31,6 +31,7 @@ require("packer").startup(function()
   use { "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" }
   use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
   use { "nvim-telescope/telescope-file-browser.nvim", requires = "nvim-telescope/telescope.nvim" }
+  use { "cljoly/telescope-repo.nvim", requires = { { "nvim-telescope/telescope.nvim" }, { "airblade/vim-rooter" } } }
   -- lsp
   use { "neovim/nvim-lspconfig" }
   -- formatting

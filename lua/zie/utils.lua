@@ -10,3 +10,17 @@ keymap("n", "<c-space>", ":UmlautsToggle<CR>", { noremap = true })
 -- ----------------------------------------------------------------------------
 
 vim.g.indentLine_char_list = { "|", "¦", "┆", "┊" }
+
+-------------------------------------------------------------------------------
+-- JEKYLL
+-- ----------------------------------------------------------------------------
+
+vim.g.jekyll_post_template =  {
+    "---",
+    "layout: 'post'",
+    "title: 'JEKYLL_TITLE'",
+    "date: 'JEKYLL_DATE'",
+    "categories: 'JEKYLL_CATEGORIES'",
+    "tags: 'JEKYLL_TAGS'",
+    "---",
+    ""}

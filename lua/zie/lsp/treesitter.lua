@@ -3,7 +3,7 @@
 -- ############################################################################
 
 require("nvim-treesitter.configs").setup {
-  ensure_installed = {"c", "lua", "cpp", "rust", "python"},
+  ensure_installed = {"c", "lua", "cpp", "rust", "ada", "zig", "python", "rst", "markdown"},
   ignore_install = { "haskell", "javascript" },
   highlight = {
     enable = true,
